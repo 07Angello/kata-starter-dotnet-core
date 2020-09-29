@@ -1,4 +1,6 @@
+using System.Linq;
 using System.Text;
+using System.Collections.Generic;
 
 namespace Kata
 {
@@ -9,7 +11,16 @@ namespace Kata
             if(string.IsNullOrEmpty(number))
                 return 0;
 
-            return int.Parse(number);
+            List<string> numbers = number.Split(",").ToList();
+            int result = 0;
+            
+            foreach (string num in numbers)
+            {
+                int currentNumber = int.Parse(num);
+                result += currentNumber;
+            }
+
+            return result;
         }
     }
 }
